@@ -43,7 +43,7 @@
                 app:srcCompat="@drawable/baseline_delete_black_18dp" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tituloArticulo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_short"
