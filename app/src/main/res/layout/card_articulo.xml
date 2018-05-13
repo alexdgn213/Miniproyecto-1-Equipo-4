@@ -23,7 +23,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imagen_articulo"
+                android:id="@+id/foto_articulo"
                 android:layout_width="@dimen/image_size_2"
                 android:layout_height="@dimen/image_size_2"
                 android:layout_marginTop="@dimen/margin_short"
@@ -34,7 +34,7 @@
                 app:srcCompat="@drawable/mantequilla" />
 
             <TextView
-                android:id="@+id/tituloArticulo"
+                android:id="@+id/nombre_articulo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_short"
@@ -46,7 +46,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imagen_articulo" />
+                app:layout_constraintTop_toBottomOf="@+id/foto_articulo" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -61,7 +61,7 @@
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tituloArticulo" />
+                app:layout_constraintTop_toBottomOf="@+id/nombre_articulo" />
 
         </android.support.constraint.ConstraintLayout>
 

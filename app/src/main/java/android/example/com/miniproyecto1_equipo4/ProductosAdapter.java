@@ -47,7 +47,7 @@ public class ProductosAdapter extends
         }
         public WordViewHolder(View itemView, ProductosAdapter adapter) {
             super(itemView);
-            wordItemView = (TextView) itemView.findViewById(R.id.tituloArticulo);
+            wordItemView = (TextView) itemView.findViewById(R.id.nombre_articulo);
             this.mAdapter = adapter;
         }
     }

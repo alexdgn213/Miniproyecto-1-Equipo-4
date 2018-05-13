@@ -45,7 +45,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
     @Override
     public ArticuloViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_compra, viewGroup, false);
         ArticuloViewHolder avh = new ArticuloViewHolder(v);
         return avh;
     }
@@ -54,7 +54,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     @Override
     public void onBindViewHolder(ArticuloViewHolder articuloViewHolder, int i) {
         articuloViewHolder.nombreArticulo.setText(articulos.get(i).nombre);
-        articuloViewHolder.medidaArticulo.setText(articulos.get(i).medida);
+        //articuloViewHolder.medidaArticulo.setText(articulos.get(i).medida);
         articuloViewHolder.cantidadArticulo.setText(articulos.get(i).cantidad);
         articuloViewHolder.precioArticulo.setText(articulos.get(i).precio);
         articuloViewHolder.fotoArticulo.setImageResource(articulos.get(i).foto);
