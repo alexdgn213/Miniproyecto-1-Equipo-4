@@ -13,7 +13,7 @@
         android:layout_marginBottom="@dimen/margin_short"
         android:layout_marginLeft="@dimen/margin_short"
         android:layout_marginRight="@dimen/margin_short"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_extra_short"
         app:cardCornerRadius="@dimen/card_corner_radius_medium"
         app:cardElevation="@dimen/card_elevation">
 
@@ -32,29 +32,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/cebolla" />
 
-            <ImageView
-                android:id="@+id/eliminar"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="@dimen/margin_medium"
-                android:cropToPadding="false"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_delete_black_18dp" />
-
             <TextView
                 android:id="@+id/nombre_articulo"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_short"
+                android:layout_marginEnd="@dimen/margin_short"
+                android:layout_marginRight="@dimen/margin_short"
                 android:gravity="center"
                 android:text="Cebolla"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_tittle"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/eliminar"
+                app:layout_constraintEnd_toStartOf="@+id/boton_eliminar"
                 app:layout_constraintStart_toEndOf="@+id/foto_articulo"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,13 +51,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_short"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="@dimen/margin_short"
                 android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_marginRight="@dimen/margin_medium"
-                android:layout_marginStart="8dp"
+                android:layout_marginRight="@dimen/margin_short"
+                android:layout_marginStart="@dimen/margin_short"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/eliminar"
+                app:layout_constraintEnd_toStartOf="@+id/boton_eliminar"
                 app:layout_constraintStart_toEndOf="@+id/foto_articulo">
 
                 <TextView
@@ -78,7 +67,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Cant: 1"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/text_cant" />
 
                 <TextView
                     android:id="@+id/precio_articulo"
@@ -87,8 +76,19 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Total: $50"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/text_cant" />
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/boton_eliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:background="@drawable/ic_delete_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
 

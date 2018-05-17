@@ -6,4 +6,9 @@
     <dimen name="card_corner_radius_medium">10dp</dimen>
     <dimen name="image_size_2">120dp</dimen>
     <dimen name="card_elevation">5dp</dimen>
+    <dimen name="margin_extra_short">2dp</dimen>
+    <dimen name="text_tittle">18sp</dimen>
+    <dimen name="text_cant">12sp</dimen>
+    <dimen name="text_tittle_product">14sp</dimen>
+    <dimen name="text_cant_product">10sp</dimen>
 </resources>

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerView.ArticuloViewHolder> {
+public class ComprasAdapter extends RecyclerView.Adapter<ComprasAdapter.ArticuloViewHolder> {
 
 
     public static class ArticuloViewHolder extends RecyclerView.ViewHolder {
@@ -34,7 +34,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
     List<Articulo> articulos;
 
-    AdapterRecyclerView(List<Articulo> articulos){
+    ComprasAdapter(List<Articulo> articulos){
         this.articulos = articulos;
     }
 
