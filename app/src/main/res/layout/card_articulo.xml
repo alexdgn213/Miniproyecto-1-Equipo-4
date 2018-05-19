@@ -49,7 +49,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/foto_articulo" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/precio_articulo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_short"
