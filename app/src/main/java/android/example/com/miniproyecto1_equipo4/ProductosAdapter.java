@@ -2,6 +2,7 @@ package android.example.com.miniproyecto1_equipo4;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +12,22 @@ import android.widget.TextView;
 
 import java.util.LinkedList;
 
+/**
+ *  Adaptador para agregar los productos disponibles al RecyclerView
+ *
+ *  @autor Alexander Garcia, Marco Lozano, Jorge Pinto
+ */
 public class ProductosAdapter extends
         RecyclerView.Adapter<ProductosAdapter.WordViewHolder>{
-    private LinkedList<Articulo_Comprar> mWordList;
+    private LinkedList<ArticuloComprar> productsList;
     private LayoutInflater mInflater;
+    private ProductosActivity productosActivity;
 
     public static class WordViewHolder extends RecyclerView.ViewHolder {
         public TextView wordItemView;
-        public TextView priceItemView;           /////////////////////////////////////////////////////
-        public ImageView photoItemView;          /////////////////////////////////////////////////////
+        public TextView priceItemView;
+        public ImageView photoItemView;
+        public CardView card;
         ProductosAdapter mAdapter;
 
         public WordViewHolder(View itemView) {
@@ -29,16 +37,18 @@ public class ProductosAdapter extends
         public WordViewHolder(View itemView, ProductosAdapter adapter) {
             super(itemView);
             wordItemView = (TextView) itemView.findViewById(R.id.nombre_articulo);
-            priceItemView = (TextView) itemView.findViewById(R.id.precio_articulo);////////////////////
-            photoItemView = (ImageView) itemView.findViewById(R.id.foto_articulo);/////////////////////
+            priceItemView = (TextView) itemView.findViewById(R.id.precio_articulo);
+            photoItemView = (ImageView) itemView.findViewById(R.id.foto_articulo);
+            card = (CardView) itemView.findViewById(R.id.card_articulo);
             this.mAdapter = adapter;
         }
     }
 
 
-    public ProductosAdapter(Context context, LinkedList<Articulo_Comprar> wordList) {
+    public ProductosAdapter(Context context, LinkedList<ArticuloComprar> wordList,ProductosActivity productosActivity) {
         mInflater = LayoutInflater.from(context);
-        this.mWordList = wordList;
+        this.productsList = wordList;
+        this.productosActivity=productosActivity;
     }
 
     @NonNull
@@ -49,17 +59,22 @@ public class ProductosAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(WordViewHolder holder, int position) {
-        Articulo_Comprar mCurrent = mWordList.get(position);
-        holder.wordItemView.setText(mWordList.get(position).nombre);
-        holder.priceItemView.setText(mWordList.get(position).precio);///////////////////////////////////////////////////////
-        holder.photoItemView.setImageResource(mWordList.get(position).foto);////////////////////////////////////////////////
-
+    public void onBindViewHolder(WordViewHolder holder, final int position) {
+        ArticuloComprar mCurrent = productsList.get(position);
+        holder.wordItemView.setText(productsList.get(position).nombre);
+        holder.priceItemView.setText(productsList.get(position).precio);
+        holder.photoItemView.setImageResource(productsList.get(position).foto);
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                productosActivity.agregaraCarrito(productsList.get(position));
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return mWordList.size();
+        return productsList.size();
     }
 
 

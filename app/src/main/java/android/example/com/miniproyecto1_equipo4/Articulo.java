@@ -3,7 +3,11 @@ package android.example.com.miniproyecto1_equipo4;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *  Clase que representa un articulo en venta
+ *
+ *  @autor Alexander Garcia, Marco Lozano, Jorge Pinto
+ */
 class Articulo {
 
     String nombre;

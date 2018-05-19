@@ -10,6 +10,11 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/**
+ *  Adaptador para agregar las compras realizadas al RecyclerView
+ *
+ *  @autor Alexander Garcia, Marco Lozano, Jorge Pinto
+ */
 public class ComprasAdapter extends RecyclerView.Adapter<ComprasAdapter.ArticuloViewHolder> {
 
 
@@ -20,6 +25,8 @@ public class ComprasAdapter extends RecyclerView.Adapter<ComprasAdapter.Articulo
         TextView cantidadArticulo;
         TextView precioArticulo;
         ImageView fotoArticulo;
+        ImageView botonELiminar;
+
 
         ArticuloViewHolder(View itemView) {
             super(itemView);
@@ -29,13 +36,17 @@ public class ComprasAdapter extends RecyclerView.Adapter<ComprasAdapter.Articulo
             cantidadArticulo = (TextView)itemView.findViewById(R.id.cantidad_articulo);
             precioArticulo = (TextView)itemView.findViewById(R.id.precio_articulo);
             fotoArticulo = (ImageView)itemView.findViewById(R.id.foto_articulo);
+            botonELiminar = (ImageView)itemView.findViewById(R.id.boton_eliminar);
+
         }
     }
 
     List<Articulo> articulos;
+    MainActivity mainActivity;
 
-    ComprasAdapter(List<Articulo> articulos){
+    ComprasAdapter(List<Articulo> articulos, MainActivity mainActivity){
         this.articulos = articulos;
+        this.mainActivity = mainActivity;
     }
 
     @Override
@@ -52,13 +63,17 @@ public class ComprasAdapter extends RecyclerView.Adapter<ComprasAdapter.Articulo
 
 
     @Override
-    public void onBindViewHolder(ArticuloViewHolder articuloViewHolder, int i) {
+    public void onBindViewHolder(ArticuloViewHolder articuloViewHolder, final int i) {
         articuloViewHolder.nombreArticulo.setText(articulos.get(i).nombre);
-        //articuloViewHolder.medidaArticulo.setText(articulos.get(i).medida);
         articuloViewHolder.cantidadArticulo.setText(articulos.get(i).cantidad);
         articuloViewHolder.precioArticulo.setText(articulos.get(i).precio);
         articuloViewHolder.fotoArticulo.setImageResource(articulos.get(i).foto);
-
+        articuloViewHolder.botonELiminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainActivity.eliminarArticulo(articulos.get(i));
+            }
+        });
     }
 
     @Override

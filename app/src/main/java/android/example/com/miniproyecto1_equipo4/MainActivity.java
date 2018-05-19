@@ -10,48 +10,58 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Activity que muestra los articulos comprados por el usuario
+ *
+ *  @autor Alexander Garcia, Marco Lozano, Jorge Pinto
+ */
 public class MainActivity extends AppCompatActivity {
 
     private List<android.example.com.miniproyecto1_equipo4.Articulo> articulos; //Lista de articulos
     private RecyclerView rv;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-            rv = (RecyclerView)findViewById(R.id.rv);
+        rv = (RecyclerView)findViewById(R.id.rv);
 
-            LinearLayoutManager llm = new LinearLayoutManager(this);
-            rv.setLayoutManager(llm);
-            rv.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        rv.setHasFixedSize(true);
 
-            inicializarData();
-            inicializarAdaptador();
-        }
+        articulos = new ArrayList<>();
+        inicializarAdaptador();
+    }
 
-        /** Inicializar data, llena la lista de articulos inicial*/
+    /**
+     * Elimina un articulo del carrito
+     * @param articulo articulo que se desea eliminar
+     */
+    public void eliminarArticulo(Articulo articulo){
 
-        private void inicializarData(){
-            articulos = new ArrayList<>();
-            articulos.add(new android.example.com.miniproyecto1_equipo4.Articulo("Harina PAN", "1 KG","Cantidad: x2","20,00Bs", R.drawable.harina));
-          /*  articulos.add(new android.example.com.miniproyecto1_equipo4.Articulo("Agua Minalba", "1 L", "Cantidad: x3","4,00Bs",R.drawable.agua));
-            articulos.add(new Articulo("Captain Crunch", "794 Grs", "Cantidad: x1", "79,99Bs",R.drawable.capn));
-            articulos.add(new Articulo("Nutella","13 Oz","Cantidad x1","99,99Bs",R.drawable.nutella));
-            articulos.add(new Articulo("Pizza","100gr","Cantidad x1","20Bs",R.drawable.pizza));
-            articulos.add(new Articulo("Nestea","450gr","Cantidad x3","60Bs",R.drawable.tea));
-            articulos.add(new Articulo("Toddy","400gr","Cantidad x1","33Bs",R.drawable.toddy));
-            articulos.add(new Articulo("Huevos","300gr","Cantidad x30","20Bs",R.drawable.huevos));
-            articulos.add(new Articulo("Coca-Cola","355ml","Cantidad x1","15Bs",R.drawable.cocacola));*/
+    }
 
+    /**
+     *  Agrega un nuevo producto o aumenta la cantidad en caso de estar presente
+     * @param articulo articulo que se desea agregar
+     */
+    private void agregarArticulo(ArticuloComprar articulo){
 
-        }
-        private void inicializarAdaptador(){
-            ComprasAdapter adapter = new ComprasAdapter(articulos);
-            rv.setAdapter(adapter);
-        }
+    }
 
+    /**
+     * Carga los datos en el recyclerview
+     */
+    private void inicializarAdaptador(){
+        ComprasAdapter adapter = new ComprasAdapter(articulos,this);
+        rv.setAdapter(adapter);
+    }
 
+    /**
+     * Inicia la activity de compra de un producto
+     */
     public void comprar(View view) {
         Intent intent = new Intent(this,ProductosActivity.class);
         startActivity(intent);
