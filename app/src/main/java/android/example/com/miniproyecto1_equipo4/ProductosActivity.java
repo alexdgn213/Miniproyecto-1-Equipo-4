@@ -49,6 +49,19 @@ public class ProductosActivity extends AppCompatActivity {
         productsList.add(new ArticuloComprar("Toddy","Precio: 33,00Bs",R.drawable.toddy));
         productsList.add(new ArticuloComprar("Huevos","Precio: 20,00Bs",R.drawable.huevos));
         productsList.add(new ArticuloComprar("Coca-Cola","Precio: 15,00Bs",R.drawable.cocacola));
+        productsList.add(new ArticuloComprar("Cerveza","Precio: 17,00Bs",R.drawable.cerveza));
+        productsList.add(new ArticuloComprar("Cafe","Precio: 13,00Bs",R.drawable.cafe));
+        productsList.add(new ArticuloComprar("Club Social","Precio: 17,80Bs",R.drawable.clubsocial));
+        productsList.add(new ArticuloComprar("Cotufa","Precio: 37,80Bs",R.drawable.cotufa));
+        productsList.add(new ArticuloComprar("Gomitas","Precio: 6,80Bs",R.drawable.gomitas));
+        productsList.add(new ArticuloComprar("Jugo de Manzana","Precio: 20,50Bs",R.drawable.jugo));
+        productsList.add(new ArticuloComprar("Galleta Maria","Precio: 17,80Bs",R.drawable.maria));
+        productsList.add(new ArticuloComprar("Cheerios","Precio: 87,80Bs",R.drawable.cheerios));
+        productsList.add(new ArticuloComprar("Nesquik","Precio: 83,30Bs",R.drawable.nesquik));
+        productsList.add(new ArticuloComprar("Fruity Pebbles","Precio: 90,80Bs",R.drawable.fruity));
+        productsList.add(new ArticuloComprar("Zucaritas","Precio: 77,80Bs",R.drawable.zuc));
+        productsList.add(new ArticuloComprar("Tea","Precio: 17,80Bs",R.drawable.te));
+
     }
 
     /**
