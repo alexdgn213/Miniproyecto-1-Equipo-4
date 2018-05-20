@@ -9,12 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ProductosActivity"
+            android:parentActivityName=".MainActivity"
+            >
+            <meta-data android:name="android.support.PARENT ACTIVTY"
+                android:value="android.example.com.miniproyecto1_equipo4.MainActivity">
+            </meta-data>
         </activity>
     </application>
 

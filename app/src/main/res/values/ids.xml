@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cv" type="id" />
+    <item name="nombre_articulo" type="id" />
+    <item name="medida_articulo" type="id" />
+    <item name="cantidad_articulo" type="id" />
+    <item name="foto_articulo" type="id" />
+    <item name="precio_articulo" type="id" />
+</resources>
