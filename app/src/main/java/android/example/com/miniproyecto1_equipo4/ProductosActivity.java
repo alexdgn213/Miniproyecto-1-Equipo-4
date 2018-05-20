@@ -1,5 +1,6 @@
 package android.example.com.miniproyecto1_equipo4;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -17,6 +18,9 @@ public class ProductosActivity extends AppCompatActivity {
     private final LinkedList<ArticuloComprar> productsList = new LinkedList<>();
     private RecyclerView mRecyclerView;
     private ProductosAdapter mAdapter;
+    public static final String PRODUCT_REPLY = "android.example.com.miniproyecto1_equipo4.extra.Product";
+    public static final String PRICE_REPLY = "android.example.com.miniproyecto1_equipo4.extra.Price";
+    public static final String IMAGE_REPLY = "android.example.com.miniproyecto1_equipo4.extra.Image";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +60,13 @@ public class ProductosActivity extends AppCompatActivity {
      * @param articulo : Articulo que se desea agregar.
      */
     public void agregaraCarrito(ArticuloComprar articulo){
+        Intent replyIntent = new Intent();
+        replyIntent.putExtra(PRODUCT_REPLY,articulo.nombre);
+        replyIntent.putExtra(PRICE_REPLY,articulo.precio);
+        replyIntent.putExtra(IMAGE_REPLY,articulo.foto);
+        setResult(RESULT_OK,replyIntent);
         finish();
+
     }
 
 }

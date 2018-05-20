@@ -1,5 +1,8 @@
 package android.example.com.miniproyecto1_equipo4;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +11,7 @@ import java.util.List;
  *
  *  @autor Alexander Garcia, Marco Lozano, Jorge Pinto
  */
-class Articulo {
+class Articulo implements Parcelable {
 
     String nombre;
     String medida; //Litros, kilogramos
@@ -22,5 +25,15 @@ class Articulo {
         this.cantidad = cantidad;
         this.precio = precio;
         this.foto = foto;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }
