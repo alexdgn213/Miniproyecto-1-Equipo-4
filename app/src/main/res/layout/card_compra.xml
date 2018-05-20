@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_short"
+        android:layout_marginLeft="@dimen/margin_short"
+        android:layout_marginRight="@dimen/margin_short"
+        android:layout_marginTop="@dimen/margin_extra_short"
+        app:cardCornerRadius="@dimen/card_corner_radius_medium"
+        app:cardElevation="@dimen/card_elevation">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/foto_articulo"
+                android:layout_width="@dimen/image_size_1"
+                android:layout_height="@dimen/image_size_1"
+                android:layout_marginLeft="@dimen/margin_short"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cebolla" />
+
+            <TextView
+                android:id="@+id/nombre_articulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_short"
+                android:layout_marginEnd="@dimen/margin_short"
+                android:layout_marginRight="@dimen/margin_short"
+                android:gravity="center"
+                android:text="Cebolla"
+                android:textSize="@dimen/text_tittle"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/boton_eliminar"
+                app:layout_constraintStart_toEndOf="@+id/foto_articulo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_short"
+                android:layout_marginEnd="@dimen/margin_short"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_short"
+                android:layout_marginStart="@dimen/margin_short"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/boton_eliminar"
+                app:layout_constraintStart_toEndOf="@+id/foto_articulo">
+
+                <TextView
+                    android:id="@+id/cantidad_articulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Cant: 1"
+                    android:textSize="@dimen/text_cant" />
+
+                <TextView
+                    android:id="@+id/precio_articulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Total: $50"
+                    android:textSize="@dimen/text_cant" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/boton_eliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:background="@drawable/ic_delete_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>
