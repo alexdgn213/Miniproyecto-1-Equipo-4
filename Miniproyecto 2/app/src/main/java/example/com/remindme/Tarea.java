@@ -9,17 +9,12 @@ import java.util.List;
 public class Tarea {
 
     private String titulo;
-    private String descripcion;
-    private Date fechainicio;
-    private Date fechafin;
+    private String fechainicio;
 
 
     public Tarea(String titulo) { //Como necesito la fecha de inicio se la agrego automatica.
         this.titulo = titulo;
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-
+        String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         this.fechainicio = date;
     }
 
@@ -31,19 +26,12 @@ public class Tarea {
         this.titulo = titulo;
     }
 
-    public Date getFechainicio() {
+    public String getFechainicio() {
         return fechainicio;
     }
 
-    public void setFechainicio(Date fechainicio) {
+    public void setFechainicio(String fechainicio) {
         this.fechainicio = fechainicio;
     }
 
-    public Date getFechafin() {
-        return fechafin;
-    }
-
-    public void setFechafin(Date fechafin) {
-        this.fechafin = fechafin;
-    }
 }

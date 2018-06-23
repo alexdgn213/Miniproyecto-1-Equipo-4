@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Date;
 import java.util.List;
 
 public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewHolder> {
@@ -39,7 +40,7 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
     public void onBindViewHolder(@NonNull TareaViewHolder holder, int position) {
         Tarea tarea = tareaList.get(position);
         holder.titulo.setText(tarea.getTitulo());
-        holder.fecha.setText((CharSequence) tarea.getFechainicio());
+        holder.fecha.setText(tarea.getFechainicio());
 
     }
 
