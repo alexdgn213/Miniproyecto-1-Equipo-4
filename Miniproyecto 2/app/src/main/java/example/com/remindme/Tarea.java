@@ -8,8 +8,14 @@ import java.util.List;
 
 public class Tarea {
 
+    private int id;
     private String titulo;
     private String fechainicio;
+
+
+    public Tarea(){
+
+    }
 
 
     public Tarea(String titulo) { //Como necesito la fecha de inicio se la agrego automatica.
@@ -34,4 +40,11 @@ public class Tarea {
         this.fechainicio = fechainicio;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
