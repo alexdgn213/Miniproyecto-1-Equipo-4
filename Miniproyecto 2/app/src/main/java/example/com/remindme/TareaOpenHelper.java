@@ -39,10 +39,18 @@ public class TareaOpenHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase mReadableDB;
 
+    /**
+     *constructor
+     * @param context
+     */
     public TareaOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     * funcion que consulta todas las tareas
+     * @return todas las tareas de la base de datos
+     */
     public Tarea[] traerTareas() {
         String query = "SELECT * FROM " + WORD_LIST_TABLE +
                 " ORDER BY " + KEY_WORD + " ASC ";
@@ -77,6 +85,90 @@ public class TareaOpenHelper extends SQLiteOpenHelper {
         }
     }
 
+    /**
+     * funcion que consulta todas las tareas finalizadas
+     * * @return todas las tareas de la base de datos
+     */
+    public Tarea[] traerTareasCompletadas() {
+        String query = "SELECT * FROM " + WORD_LIST_TABLE +
+                " WHERE Finalizado = " + 1 +
+                " ORDER BY " + KEY_WORD + " ASC ";
+        Cursor cursor = null;
+        Tarea entry[]=null;
+
+        try {
+            if (mReadableDB == null) {
+                mReadableDB = getReadableDatabase();
+
+            }
+            cursor = mReadableDB.rawQuery(query, null);
+            entry = new Tarea[cursor.getColumnCount()];
+            cursor.moveToFirst();
+            int i = 1;
+            entry[0].setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
+            entry[0].setTitulo(cursor.getString(cursor.getColumnIndex(KEY_WORD)));
+            entry[0].setFechainicio(cursor.getString(cursor.getColumnIndex(INIT_DATE)));
+
+            while (cursor.moveToNext()) {
+                entry[i].setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
+                entry[i].setTitulo(cursor.getString(cursor.getColumnIndex(KEY_WORD)));
+                entry[i].setFechainicio(cursor.getString(cursor.getColumnIndex(INIT_DATE)));
+                i++;
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "EXCEPTION! " + e);
+        } finally {
+            cursor.close();
+            return entry;
+
+        }
+    }
+
+    /**
+     * funcion que consulta todas las tareas no finalizadas
+     * * @return todas las tareas de la base de datos
+     */
+    public Tarea[] traerTareasNoCompletadas() {
+        String query = "SELECT * FROM " + WORD_LIST_TABLE +
+                " WHERE Finalizado = " + 0 +
+                " ORDER BY " + KEY_WORD + " ASC ";
+        Cursor cursor = null;
+        Tarea entry[]=null;
+
+        try {
+            if (mReadableDB == null) {
+                mReadableDB = getReadableDatabase();
+
+            }
+            cursor = mReadableDB.rawQuery(query, null);
+            entry = new Tarea[cursor.getColumnCount()];
+            cursor.moveToFirst();
+            int i = 1;
+            entry[0].setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
+            entry[0].setTitulo(cursor.getString(cursor.getColumnIndex(KEY_WORD)));
+            entry[0].setFechainicio(cursor.getString(cursor.getColumnIndex(INIT_DATE)));
+
+            while (cursor.moveToNext()) {
+                entry[i].setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
+                entry[i].setTitulo(cursor.getString(cursor.getColumnIndex(KEY_WORD)));
+                entry[i].setFechainicio(cursor.getString(cursor.getColumnIndex(INIT_DATE)));
+                i++;
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "EXCEPTION! " + e);
+        } finally {
+            cursor.close();
+            return entry;
+
+        }
+    }
+
+    /**
+     * funcion que inserta entidad en la base de datos
+     * @param tarea parametro insertar
+     * @param fechaFin parametro a insertar
+     * @return el id de la taera insertada
+     */
     public long insert(String tarea, Date fechaFin){
         long newId = 0;
         ContentValues values = new ContentValues();
@@ -97,6 +189,38 @@ public class TareaOpenHelper extends SQLiteOpenHelper {
         return newId;
     }
 
+    /**
+     * Funcion para actualizar una entidad de la base de datos en funcion del id
+     * @param id parametro de busqueda en la base de datos
+     * @param finalizado parametro a actualizar
+     * @param fechaFin parametro a actualizar
+     * @return devuelve la cantidad de filas modificadas
+     */
+    public int update(int id, int finalizado ,String fechaFin ){
+        int mNumberOfRowsUpdated = -1;
+        try {
+            if (mWritableDB == null) {
+                mWritableDB = getWritableDatabase();
+            }
+            ContentValues values = new ContentValues();
+            values.put(END_DATE, fechaFin);
+            values.put(ENDED, finalizado);
+            mNumberOfRowsUpdated = mWritableDB.update(WORD_LIST_TABLE,
+                    values,
+                    KEY_ID + " = ?",
+                    new String[]{String.valueOf(id)});
+        } catch (Exception e) {
+            Log.d (TAG, "UPDATE EXCEPTION! " + e.getMessage());
+        }
+        return mNumberOfRowsUpdated;
+
+    }
+
+    /**
+     * Trae una unica entidad
+     * @param id parametro de busqueda
+     * @return la entidad buscada
+     */
     public Tarea traerTarea(int id) {
         String query = "SELECT * FROM " + WORD_LIST_TABLE +
                 " WHERE id =" + id + " ";
