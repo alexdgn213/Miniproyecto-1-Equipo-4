@@ -16,22 +16,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static example.com.remindme.WordListOpenHelper.ENDED;
-import static example.com.remindme.WordListOpenHelper.END_DATE;
-import static example.com.remindme.WordListOpenHelper.INIT_DATE;
-import static example.com.remindme.WordListOpenHelper.KEY_WORD;
-import static example.com.remindme.WordListOpenHelper.WORD_LIST_TABLE;
+import static example.com.remindme.TareaOpenHelper.ENDED;
+import static example.com.remindme.TareaOpenHelper.END_DATE;
+import static example.com.remindme.TareaOpenHelper.INIT_DATE;
+import static example.com.remindme.TareaOpenHelper.KEY_WORD;
+import static example.com.remindme.TareaOpenHelper.WORD_LIST_TABLE;
 
 public class MainActivity extends AppCompatActivity {
     private List<Tarea> tareaList = new ArrayList<>();
     private RecyclerView recyclerView;
     private TareasAdapter tareasAdapter;
-    private WordListOpenHelper mDB;
+    private TareaOpenHelper mDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDB = new WordListOpenHelper(this);
+        mDB = new TareaOpenHelper(this);
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
@@ -42,17 +42,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(tareasAdapter);
 
         inicializarTareas();
-    }
-
-    private void fillDatabaseWithData(SQLiteDatabase db, String tarea, Date fechaFin){
-        // Create a container for the data.
-        ContentValues values = new ContentValues();
-        Date currentTime = Calendar.getInstance().getTime();
-        values.put(KEY_WORD, tarea);
-        values.put(INIT_DATE, String.valueOf(currentTime));
-        values.put(END_DATE, String.valueOf(fechaFin));
-        values.put(ENDED, 0);
-        db.insert(WORD_LIST_TABLE, null, values);
     }
 
 

@@ -1,17 +1,19 @@
 package example.com.remindme;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.Calendar;
 import java.util.Date;
 
-public class WordListOpenHelper extends SQLiteOpenHelper {
+public class TareaOpenHelper extends SQLiteOpenHelper {
 
     // It's a good idea to always define a log tag like this.
-    private static final String TAG = WordListOpenHelper.class.getSimpleName();
+    private static final String TAG = TareaOpenHelper.class.getSimpleName();
     // has to be 1 first time or app will crash
     private static final int DATABASE_VERSION = 1;
     public static final String WORD_LIST_TABLE = "tarea";
@@ -37,7 +39,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase mReadableDB;
 
-    public WordListOpenHelper(Context context) {
+    public TareaOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -75,6 +77,26 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
         }
     }
 
+    public long insert(String tarea, Date fechaFin){
+        long newId = 0;
+        ContentValues values = new ContentValues();
+        Date currentTime = Calendar.getInstance().getTime();
+        values.put(KEY_WORD, tarea);
+        values.put(INIT_DATE, String.valueOf(currentTime));
+        values.put(END_DATE, String.valueOf(fechaFin));
+        values.put(ENDED, 0);
+        try {
+            if (mWritableDB == null) {
+                mWritableDB = getWritableDatabase();
+            }
+            newId = mWritableDB.insert(WORD_LIST_TABLE, null, values);
+        } catch (Exception e) {
+            Log.d(TAG, "INSERT EXCEPTION! " + e.getMessage());
+
+        }
+        return newId;
+    }
+
     public Tarea traerTarea(int id) {
         String query = "SELECT * FROM " + WORD_LIST_TABLE +
                 " WHERE id =" + id + " ";
@@ -110,6 +132,4 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-
-
 }
