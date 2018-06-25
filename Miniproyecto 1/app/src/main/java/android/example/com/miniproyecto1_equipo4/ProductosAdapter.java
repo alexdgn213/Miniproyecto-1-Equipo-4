@@ -17,8 +17,7 @@ import java.util.LinkedList;
  *
  *  @autor Alexander Garcia, Marco Lozano, Jorge Pinto
  */
-public class ProductosAdapter extends
-        RecyclerView.Adapter<ProductosAdapter.WordViewHolder>{
+public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.WordViewHolder>{
     private LinkedList<ArticuloComprar> productsList;
     private LayoutInflater mInflater;
     private ProductosActivity productosActivity;
