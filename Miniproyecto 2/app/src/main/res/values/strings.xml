@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RemindMe</string>
+    <string name="detalles">Detalles:</string>
+    <string name="ingrese_la_tarea">Ingrese la Tarea</string>
+    <string name="estatus">Estatus:</string>
+    <string name="fecha_creado">Fecha Creado:</string>
+    <string name="fecha_tope">Fecha Tope:</string>
+</resources>
