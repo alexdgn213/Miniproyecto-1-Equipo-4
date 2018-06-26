@@ -170,13 +170,19 @@ public class TareaOpenHelper extends SQLiteOpenHelper {
      * @param fechaFin parametro a insertar
      * @return el id de la taera insertada
      */
-    public long insert(String tarea, Date fechaFin){
+
+    public long count() {
+        if (mReadableDB == null) {mReadableDB = getReadableDatabase();}
+        return DatabaseUtils.queryNumEntries(mReadableDB, WORD_LIST_TABLE);
+    }
+
+    public long insert(String tarea){
         long newId = 0;
         ContentValues values = new ContentValues();
         Date currentTime = Calendar.getInstance().getTime();
         values.put(KEY_WORD, tarea);
         values.put(INIT_DATE, String.valueOf(currentTime));
-        values.put(END_DATE, String.valueOf(fechaFin));
+     //   values.put(END_DATE, String.valueOf(fechaFin));
         values.put(ENDED, 0);
         try {
             if (mWritableDB == null) {
@@ -215,6 +221,17 @@ public class TareaOpenHelper extends SQLiteOpenHelper {
         }
         return mNumberOfRowsUpdated;
 
+    }
+
+    public int delete(int id) {
+        int deleted = 0;
+        try {
+            if (mWritableDB == null) {mWritableDB = getWritableDatabase();}
+            deleted = mWritableDB.delete(WORD_LIST_TABLE, //table name
+                    KEY_ID + " = ? ", new String[]{String.valueOf(id)});
+        } catch (Exception e) {
+            Log.d (TAG, "DELETE EXCEPTION! " + e.getMessage());        }
+        return deleted;
     }
 
     /**

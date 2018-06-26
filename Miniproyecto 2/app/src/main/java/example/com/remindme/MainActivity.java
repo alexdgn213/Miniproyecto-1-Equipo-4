@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
                             if (id == TAREA_ADD) {
                                 mDB.insert(word);
                             } else if (id >= 0) {
-                                mDB.update(id, word);
+                                mDB.update(id,id, word); //Aqui va fecha fin
                             }
                             // Update the UI.
-                            mAdapter.notifyDataSetChanged();
+                            tareasAdapter.notifyDataSetChanged();
                         } else {
                             Toast.makeText(
                                     getApplicationContext(),
@@ -92,18 +92,17 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-    private void inicializarTareas(){
-        Tarea tarea = new Tarea("Esto es un titulo");
-        tareaList.add(tarea);
-        tarea = new Tarea("Debemos hacer la base de datos");
-        tareaList.add(tarea);
-    }
 
 
     public void nuevaTarea(View view) {
         Intent intent = new Intent(this,TareaActivity.class);
         startActivity(intent);
     }
+
+    public void eliminarTarea(View view){
+
+    }
+
 
         /*    @Override
             public boolean onCreateOptionsMenu(Menu menu) {
