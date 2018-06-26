@@ -3,6 +3,7 @@ package example.com.remindme;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -75,6 +76,34 @@ public class TareaOpenHelper extends SQLiteOpenHelper {
             return entry;
 
         }
+    }
+
+    public Tarea query(int position) {
+        String query = "SELECT  * FROM " + WORD_LIST_TABLE +
+                " ORDER BY " + KEY_WORD + " ASC " +
+                "LIMIT " + position + ",1";
+
+        Cursor cursor = null;
+        Tarea entry = new Tarea();
+
+        try {
+            if (mReadableDB == null) {mReadableDB = getReadableDatabase();}
+            cursor = mReadableDB.rawQuery(query, null);
+            cursor.moveToFirst();
+            entry.setId(cursor.getInt(cursor.getColumnIndex(KEY_ID)));
+           // entry.setWord(cursor.getString(cursor.getColumnIndex(KEY_WORD)));
+        } catch (Exception e) {
+            Log.d(TAG, "QUERY EXCEPTION! " + e.getMessage());
+        } finally {
+            // Must close cursor and db now that we are done with it.
+            cursor.close();
+            return entry;
+        }
+    }
+
+    public long count() {
+        if (mReadableDB == null) {mReadableDB = getReadableDatabase();}
+        return DatabaseUtils.queryNumEntries(mReadableDB, WORD_LIST_TABLE);
     }
 
     public long insert(String tarea, Date fechaFin){

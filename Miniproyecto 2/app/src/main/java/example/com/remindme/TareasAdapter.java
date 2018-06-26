@@ -1,5 +1,6 @@
 package example.com.remindme;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,28 +26,41 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
         }
     }
 
-    public TareasAdapter(List<Tarea> tareaList){
-        this.tareaList = tareaList;
+    private static final String TAG = TareasAdapter.class.getSimpleName();
+
+    public static final String EXTRA_ID = "ID";
+    public static final String EXTRA_WORD = "WORD";
+    public static final String EXTRA_POSITION = "POSITION";
+
+    private final LayoutInflater mInflater;
+    TareaOpenHelper mDB;
+    Context mContext;
+
+    public TareasAdapter(Context context, TareaOpenHelper db){
+        mInflater = LayoutInflater.from(context);
+        mContext = context;
+        mDB = db;
     }
 
     @NonNull
     @Override
     public TareaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_tarea,parent,false);
+        View itemView = mInflater.inflate(R.layout.card_tarea,parent,false); LayoutInflater.from(parent.getContext()).inflate(R.layout.card_tarea,parent,false);
         return new TareaViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TareaViewHolder holder, int position) {
-        Tarea tarea = tareaList.get(position);
+        Tarea tarea = mDB.query(position);
         holder.titulo.setText(tarea.getTitulo());
         holder.fecha.setText(tarea.getFechainicio());
+        //Faltan los demas
 
     }
 
     @Override
     public int getItemCount() {
-        return tareaList.size();
+        return(int) mDB.count();
     }
 
 
