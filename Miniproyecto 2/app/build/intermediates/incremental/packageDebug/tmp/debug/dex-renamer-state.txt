@@ -1,4 +1,22 @@
-#Sat Jun 23 16:19:23 VET 2018
-base.0=C\:\\Users\\jorge\\Desktop\\proye 2\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+<<<<<<< Updated upstream
+#Wed Jun 27 17:46:08 VET 2018
+path.1=classes.dex
+=======
+#Tue Jun 26 14:20:00 VET 2018
+base.0=/home/alex/AndroidStudioProjects/Miniproyecto1Equipo4/Miniproyecto 2/app/build/intermediates/transforms/dexMerger/debug/0
+>>>>>>> Stashed changes
 path.0=classes.dex
 renamed.0=classes.dex
+<<<<<<< Updated upstream
+base.5=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\36
+base.4=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\31
+base.3=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\34
+base.2=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\32
+base.1=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\35
+base.0=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\33
+path.5=classes.dex
+path.4=classes.dex
+path.3=classes.dex
+path.2=classes.dex
+=======
+>>>>>>> Stashed changes

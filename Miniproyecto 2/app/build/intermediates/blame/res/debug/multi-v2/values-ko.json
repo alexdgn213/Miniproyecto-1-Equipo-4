@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jorge\\Desktop\\proye 2\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
+            "outputFile": "/home/alex/AndroidStudioProjects/Miniproyecto1Equipo4/Miniproyecto 2/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ko/values-ko.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jorge\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\346d6e659b2eadade9074d32dc5b3eba\\res\\values-ko\\values-ko.xml",
+                    "source": "/home/alex/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/07edb250f1ccee1fb4e149ff25491b2f/res/values-ko/values-ko.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jorge\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\59467d08aac8ef96264e03c36995f29c\\res\\values-ko\\values-ko.xml",
+                    "source": "/home/alex/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/f9c42fdfbfa8a23eac3a47304c3379ec/res/values-ko/values-ko.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

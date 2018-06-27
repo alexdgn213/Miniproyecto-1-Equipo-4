@@ -1,7 +1,35 @@
 #Internal package file, do not edit.
-#Sat Jun 23 16:19:24 VET 2018
-0.baseType=DIRECTORY
-0.base=C\:\\Users\\jorge\\Desktop\\proye 2\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+<<<<<<< Updated upstream
+#Wed Jun 27 17:46:08 VET 2018
+2.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\32
+5.set=DEX
 0.path=classes.dex
+2.baseType=DIRECTORY
+3.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\35
+2.set=DEX
+1.path=classes.dex
+4.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\33
+count=6
+5.baseType=DIRECTORY
+2.path=classes.dex
+5.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\31
+4.set=DEX
+3.path=classes.dex
+3.baseType=DIRECTORY
+1.set=DEX
+4.path=classes.dex
+1.baseType=DIRECTORY
+5.path=classes.dex
+0.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\36
+0.baseType=DIRECTORY
+3.set=DEX
+1.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\34
+4.baseType=DIRECTORY
+=======
+#Tue Jun 26 14:20:01 VET 2018
+0.baseType=DIRECTORY
+0.base=/home/alex/AndroidStudioProjects/Miniproyecto1Equipo4/Miniproyecto 2/app/build/intermediates/transforms/dexMerger/debug/0
+0.path=classes.dex
+>>>>>>> Stashed changes
 0.set=DEX
 count=1
