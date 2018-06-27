@@ -11,6 +11,7 @@ public class Tarea {
     private int id;
     private String titulo;
     private String fechainicio;
+    private boolean completado;
 
 
     public Tarea(){
@@ -41,10 +42,18 @@ public class Tarea {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isCompletado() {
+        return completado;
+    }
+
+    public void setCompletado(boolean completado) {
+        this.completado = completado;
     }
 }

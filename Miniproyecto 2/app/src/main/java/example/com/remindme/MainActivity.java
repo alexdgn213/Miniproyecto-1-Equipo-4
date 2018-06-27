@@ -40,15 +40,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDB = new TareaOpenHelper(this);
         setContentView(R.layout.activity_main);
+
+        mDB = new TareaOpenHelper(this);
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
-        tareasAdapter = new TareasAdapter(this, mDB);
+        tareasAdapter = new TareasAdapter(this, mDB,true);
+        recyclerView.setAdapter(tareasAdapter);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(tareasAdapter);
+
 
         FloatingActionButton fab = findViewById(R.id.botonNueva);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                             if (id == TAREA_ADD) {
                                 mDB.insert(word);
                             } else if (id >= 0) {
-                                mDB.update(id,id, word); //Aqui va fecha fin
+                                mDB.update(id, word); //Aqui va fecha fin
                             }
                             // Update the UI.
                             tareasAdapter.notifyDataSetChanged();
@@ -99,11 +102,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void eliminarTarea(View view){
-
-    }
-
-
+//No esta ni onCreateOptionsMenu ni onOptionsItemSelected
         /*    @Override
             public boolean onCreateOptionsMenu(Menu menu) {
                 getMenuInflater().inflate( menu);

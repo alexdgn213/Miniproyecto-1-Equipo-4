@@ -84,20 +84,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/textView53"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/fecha_tope" />
-
-                    <TextView
-                        android:id="@+id/textoFechaTope"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="" />
-
                 </TableRow>
             </TableLayout>
 
@@ -105,30 +91,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/margin_big"
-                android:gravity="center"
+                android:gravity="right|center"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/botonEliminar2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_small"
-                    app:srcCompat="@drawable/ic_delete" />
-
-                <ImageView
-                    android:id="@+id/botonTerminar2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_big"
-                    android:layout_marginRight="@dimen/margin_big"
-                    app:srcCompat="@drawable/ic_complete" />
-
-                <ImageView
                     android:id="@+id/botonGuardar"
-                    android:onClick="returnReply"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_small"
+                    android:onClick="returnReply"
                     app:srcCompat="@drawable/ic_save" />
             </LinearLayout>
 
