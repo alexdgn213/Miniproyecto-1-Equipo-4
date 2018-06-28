@@ -18,9 +18,10 @@ public class TareaActivity extends AppCompatActivity {
     public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
 
     int mId= MainActivity.TAREA_ADD;
-    //AGREGADO POR MI
     private TextView mTextView;
     private TareaOpenHelper mDB;
+    private TextView tvEstatus;
+    private TextView tvFecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class TareaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tarea);
 
         mEditWordView = (EditText) findViewById(R.id.textoDetalles);
+        tvEstatus = findViewById(R.id.textoEstatus);
+        tvFecha = findViewById(R.id.textoFechaCreado);
 
         // Get data sent from calling activity.
         Bundle extras = getIntent().getExtras();
@@ -36,17 +39,24 @@ public class TareaActivity extends AppCompatActivity {
         if (extras != null) {
             int id = extras.getInt(TareasAdapter.EXTRA_ID, NO_ID);
             String word = extras.getString(TareasAdapter.EXTRA_WORD, NO_WORD);
+            String estatus = extras.getString(TareasAdapter.EXTRA_ESTATUS);
+            String fecha = extras.getString(TareasAdapter.EXTRA_FECHA);
             if ((id != NO_ID) && (word != NO_WORD)) {
                 mId = id;
                 mEditWordView.setText(word);
+                tvEstatus.setText(estatus);
+                tvFecha.setText(fecha);
             }
         }
 
     }
 
+    /**
+     * Regresa a la activity anterior el id de la tarea a modificar y su nuevo texto
+     * @param view
+     */
     public void returnReply(View view) {
         String word = ((EditText) findViewById(R.id.textoDetalles)).getText().toString();
-
         Intent replyIntent = new Intent();
         replyIntent.putExtra(EXTRA_REPLY, word);
         replyIntent.putExtra(TareasAdapter.EXTRA_ID, mId);
@@ -54,26 +64,4 @@ public class TareaActivity extends AppCompatActivity {
         finish();
     }
 
-    //AGREGADO POR MII AQUI
-    public void showResult(View view) {
-        String word = mEditWordView.getText().toString();
-        mTextView.setText("Result for " + word + ":\n\n");
-
-
-        // Search for the word in the database.
-        Cursor cursor = mDB.search(word);
-        // Only process a non-null cursor with rows.
-        if (cursor != null & cursor.getCount() > 0) {// You must move the cursor to the first item.
-            cursor.moveToFirst();
-            int index;
-            String result;             // Iterate over the cursor, while there are entries.
-            do {                 // Don't guess at the column index.                 // Get the index for the named column.
-                index = cursor.getColumnIndex(TareaOpenHelper.KEY_WORD);                 // Get the value from the column for the current cursor.
-                result = cursor.getString(index);                 // Add result to what's already in the text view.
-                mTextView.append(result + "\n");
-            }
-            while (cursor.moveToNext()); // Returns true or false
-            cursor.close();
-        }
-    }
 }

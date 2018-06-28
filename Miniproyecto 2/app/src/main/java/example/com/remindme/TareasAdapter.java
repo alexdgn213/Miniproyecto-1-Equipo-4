@@ -26,6 +26,7 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
         ImageView delete_button;
         ImageView complete_button;
         CardView fondo;
+        LinearLayout contenedor;
         LinearLayout botones;
         boolean oculto;
 
@@ -38,6 +39,7 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
             delete_button = (ImageView) itemView.findViewById(R.id.botonEliminar);
             edit_button = (ImageView) itemView.findViewById(R.id.botonEditar);
             complete_button = itemView.findViewById(R.id.botonCompletar);
+            contenedor = itemView.findViewById(R.id.fondo);
             oculto = true;
         }
     }
@@ -47,6 +49,8 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
     public static final String EXTRA_ID = "ID";
     public static final String EXTRA_WORD = "WORD";
     public static final String EXTRA_POSITION = "POSITION";
+    public static final String EXTRA_ESTATUS = "ESTATUS";
+    public static final String EXTRA_FECHA = "FECHA";
 
     private final LayoutInflater mInflater;
     TareaOpenHelper mDB;
@@ -72,7 +76,13 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
         Tarea tarea = mDB.traerTarea(position);
         holder.titulo.setText(tarea.getTitulo());
         final TareaViewHolder h = holder;
-        if(!tarea.isCompletado()) holder.fecha.setText(tarea.getFechainicio());
+        if(!tarea.isCompletado()) {
+            holder.fecha.setText(tarea.getFechainicio());
+        }
+        else{
+            holder.fecha.setText(tarea.getFechafin());
+            holder.complete_button.setVisibility(View.GONE);
+        }
         holder.delete_button.setOnClickListener(new MyButtonOnClickListener(tarea.getId(), null)
         {
 
@@ -88,8 +98,6 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
         });
         holder.complete_button.setOnClickListener(new MyButtonOnClickListener(tarea.getId(), null)
         {
-
-
             @Override
             public void onClick(View v ) {
             // You have to get the position like this, you can't hold a reference
@@ -99,8 +107,18 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
                 notifyDataSetChanged();
         }
         });
+        String estatus;
+        String fecha;
+        if(tarea.isCompletado()){
+            estatus = "Completada";
+            fecha = tarea.getFechafin();
+        }
+        else{
+            estatus= "Pendiente";
+            fecha = tarea.getFechainicio();
+        }
         holder.edit_button.setOnClickListener(new MyButtonOnClickListener(
-                tarea.getId(), tarea.getTitulo()) {
+                tarea.getId(), tarea.getTitulo(),estatus,fecha) {
 
             @Override
             public void onClick(View v) {
@@ -109,6 +127,8 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
                 intent.putExtra(EXTRA_ID, id);
                 intent.putExtra(EXTRA_WORD, word);
                 intent.putExtra(EXTRA_POSITION, h.getAdapterPosition());
+                intent.putExtra(EXTRA_ESTATUS,estado);
+                intent.putExtra(EXTRA_FECHA,fecha);
 
 
                 // Start an empty edit activity.
@@ -129,9 +149,17 @@ public class TareasAdapter extends RecyclerView.Adapter<TareasAdapter.TareaViewH
             }
         });
         if(completado){
-            if(tarea.isCompletado()){
-                holder.fondo.setVisibility(View.GONE);
+            if(!tarea.isCompletado()){
+                holder.contenedor.setVisibility(View.GONE);
+                holder.contenedor.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
             }
+        }
+        else{
+            if(tarea.isCompletado()){
+                holder.contenedor.setVisibility(View.GONE);
+                holder.contenedor.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+            }
+
         }
 
 

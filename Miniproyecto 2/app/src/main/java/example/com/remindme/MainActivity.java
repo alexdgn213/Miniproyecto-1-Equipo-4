@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -45,67 +46,84 @@ public class MainActivity extends AppCompatActivity {
         mDB = new TareaOpenHelper(this);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
-
-        tareasAdapter = new TareasAdapter(this, mDB,true);
-        recyclerView.setAdapter(tareasAdapter);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-
+        filtrar(false);
         FloatingActionButton fab = findViewById(R.id.botonNueva);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Starts empty edit activity.
-                // Starts empty edit activity.
                 Intent intent = new Intent(getBaseContext(), TareaActivity.class);
-
                 startActivityForResult(intent, TAREA_EDIT);
             }
         });
     }
 
-            public void onActivityResult(int requestCode, int resultCode, Intent data) {
-                super.onActivityResult(requestCode, resultCode, data);
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-                if (requestCode == TAREA_EDIT) {
-                    if (resultCode == RESULT_OK) {
-                        String word = data.getStringExtra(TareaActivity.EXTRA_REPLY);
+        if (requestCode == TAREA_EDIT) {
+            if (resultCode == RESULT_OK) {
+                String word = data.getStringExtra(TareaActivity.EXTRA_REPLY);
 
-                        // Update the database.
-                        if (!TextUtils.isEmpty(word)) {
-                            int id = data.getIntExtra(TareasAdapter.EXTRA_ID, -99);
+                // Update the database.
+                if (!TextUtils.isEmpty(word)) {
+                    int id = data.getIntExtra(TareasAdapter.EXTRA_ID, -99);
 
-                            if (id == TAREA_ADD) {
-                                mDB.insert(word);
-                            } else if (id >= 0) {
-                                mDB.update(id, word); //Aqui va fecha fin
-                            }
-                            // Update the UI.
-                            tareasAdapter.notifyDataSetChanged();
-                        } else {
-                            Toast.makeText(
-                                    getApplicationContext(),
-                                    R.string.empty_not_saved,
-                                    Toast.LENGTH_LONG).show();
-                        }
+                    if (id == TAREA_ADD) {
+                        mDB.insert(word);
+                    } else if (id >= 0) {
+                        mDB.update(id, word); //Aqui va fecha fin
                     }
+                    // Update the UI.
+                    tareasAdapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(
+                            getApplicationContext(),
+                            R.string.empty_not_saved,
+                            Toast.LENGTH_LONG).show();
                 }
             }
+        }
+    }
 
 
-
-
+    /**
+     * Inicia la activitie para una nueva tarea
+     * @param view
+     */
     public void nuevaTarea(View view) {
         Intent intent = new Intent(this,TareaActivity.class);
         startActivity(intent);
     }
 
-//No esta ni onCreateOptionsMenu ni onOptionsItemSelected
-        /*    @Override
-            public boolean onCreateOptionsMenu(Menu menu) {
-                getMenuInflater().inflate( menu);
-                return true; } */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_completed:
+                filtrar(true);
+
+                return true;
+            case R.id.action_pending:
+                filtrar(false);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Genera el adapter dentro del recycler view para solo mostrar tareas pendientes o completadas
+     * @param completado booleano que indica si se desean ver tareas completadas(True) o pendientes(false)
+     */
+    public void filtrar(Boolean completado) {
+        tareasAdapter = new TareasAdapter(this, mDB, completado);
+        recyclerView.setAdapter(tareasAdapter);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
 }

@@ -1,35 +1,19 @@
 #Internal package file, do not edit.
-<<<<<<< Updated upstream
-#Wed Jun 27 17:46:08 VET 2018
-2.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\32
-5.set=DEX
-0.path=classes.dex
-2.baseType=DIRECTORY
-3.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\35
-2.set=DEX
-1.path=classes.dex
-4.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\33
-count=6
-5.baseType=DIRECTORY
+#Wed Jun 27 20:45:23 VET 2018
+1.base=/home/alex/AndroidStudioProjects/Miniproyecto1Equipo4/Miniproyecto 2/app/build/intermediates/transforms/dexMerger/debug/13
 2.path=classes.dex
-5.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\31
-4.set=DEX
-3.path=classes.dex
+0.baseType=DIRECTORY
 3.baseType=DIRECTORY
-1.set=DEX
-4.path=classes.dex
-1.baseType=DIRECTORY
-5.path=classes.dex
-0.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\36
-0.baseType=DIRECTORY
+2.base=/home/alex/AndroidStudioProjects/Miniproyecto1Equipo4/Miniproyecto 2/app/build/intermediates/transforms/dexMerger/debug/14
 3.set=DEX
-1.base=C\:\\Users\\marco\\Documents\\GitHub\\Miniproyecto-1-Equipo-4\\Miniproyecto 2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\34
-4.baseType=DIRECTORY
-=======
-#Tue Jun 26 14:20:01 VET 2018
-0.baseType=DIRECTORY
-0.base=/home/alex/AndroidStudioProjects/Miniproyecto1Equipo4/Miniproyecto 2/app/build/intermediates/transforms/dexMerger/debug/0
+2.set=DEX
+1.baseType=DIRECTORY
+3.path=classes.dex
+count=4
+1.set=DEX
 0.path=classes.dex
->>>>>>> Stashed changes
+3.base=/home/alex/AndroidStudioProjects/Miniproyecto1Equipo4/Miniproyecto 2/app/build/intermediates/transforms/dexMerger/debug/12
 0.set=DEX
-count=1
+0.base=/home/alex/AndroidStudioProjects/Miniproyecto1Equipo4/Miniproyecto 2/app/build/intermediates/transforms/dexMerger/debug/15
+2.baseType=DIRECTORY
+1.path=classes.dex

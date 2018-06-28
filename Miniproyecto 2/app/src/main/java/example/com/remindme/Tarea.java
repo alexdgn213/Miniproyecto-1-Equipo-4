@@ -11,6 +11,7 @@ public class Tarea {
     private int id;
     private String titulo;
     private String fechainicio;
+    private String fechafin;
     private boolean completado;
 
 
@@ -55,5 +56,13 @@ public class Tarea {
 
     public void setCompletado(boolean completado) {
         this.completado = completado;
+    }
+
+    public String getFechafin() {
+        return fechafin;
+    }
+
+    public void setFechafin(String fechafin) {
+        this.fechafin = fechafin;
     }
 }
