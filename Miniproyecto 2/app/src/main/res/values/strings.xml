@@ -3,6 +3,10 @@
     <string name="detalles">Detalles:</string>
     <string name="ingrese_la_tarea">Ingrese la Tarea</string>
     <string name="estatus">Estatus:</string>
-    <string name="fecha_creado">Fecha Creado:</string>
+    <string name="fecha_creado">Fecha:</string>
     <string name="fecha_tope">Fecha Tope:</string>
+    <string name="button_delete">Delete</string>
+    <string name="empty_not_saved">No se encontro</string>
+    <string name="completadas">Completadas</string>
+    <string name="pendientes">Pendientes</string>
 </resources>

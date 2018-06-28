@@ -8,8 +8,16 @@ import java.util.List;
 
 public class Tarea {
 
+    private int id;
     private String titulo;
     private String fechainicio;
+    private String fechafin;
+    private boolean completado;
+
+
+    public Tarea(){
+
+    }
 
 
     public Tarea(String titulo) { //Como necesito la fecha de inicio se la agrego automatica.
@@ -34,4 +42,27 @@ public class Tarea {
         this.fechainicio = fechainicio;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isCompletado() {
+        return completado;
+    }
+
+    public void setCompletado(boolean completado) {
+        this.completado = completado;
+    }
+
+    public String getFechafin() {
+        return fechafin;
+    }
+
+    public void setFechafin(String fechafin) {
+        this.fechafin = fechafin;
+    }
 }
